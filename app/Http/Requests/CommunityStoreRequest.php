@@ -26,8 +26,7 @@ class CommunityStoreRequest extends FormRequest
     {
         return [
             'name' => ['required', 'unique:communities'],
-            'description' => ['required', 'min:5'],
-            'slug' => ['required', 'unique:communities']
+            'description' => ['required', 'min:5']
         ];
     }
 }

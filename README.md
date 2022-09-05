@@ -16,6 +16,9 @@ We are making Reddit App on Laravel 9 with VueJS & Inertia, this project is very
     - InertiaJS intigration
     - appling SSR(Server Side Rendering)
 
+### Adding Slug
+- ``` composer require cviebrock/eloquent-sluggable ``` 
+
 
 ## License
 

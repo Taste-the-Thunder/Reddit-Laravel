@@ -1,10 +1,10 @@
 <template>
-    <Head title="Create Community" />
+    <Head title="Edit Community" />
 
     <BreezeAuthenticatedLayout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Create Community
+                Edit Community
             </h2>
         </template>
 
@@ -26,7 +26,7 @@
 
                         <div class="flex items-center justify-end mt-4">
                             <BreezeButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                                Submit
+                                Update
                             </BreezeButton>
                         </div>
                     </form>
@@ -44,13 +44,13 @@ import BreezeButton from '@/Components/Button.vue';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 
-const form = useForm({
-    name: '',
-    description: '',
-    slug: '',
+const props = defineProps({
+    community: Object
 });
 
+const form = useForm(props.community);
+
 const submit = () => {
-    form.post(route('communities.store'));
+    form.put(route('communities.update',props.community.id));
 };
 </script>

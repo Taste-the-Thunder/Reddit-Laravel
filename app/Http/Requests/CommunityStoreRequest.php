@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Community;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CommunityStoreRequest extends FormRequest
@@ -13,7 +14,7 @@ class CommunityStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,9 @@ class CommunityStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required', 'unique:communities'],
+            'description' => ['required', 'min:5'],
+            'slug' => ['required', 'unique:communities']
         ];
     }
 }

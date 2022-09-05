@@ -30,7 +30,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200 bg-white">
-                                        <tr v-for="community in communities" :key="community.id">
+                                        <tr v-for="community in communities.data" :key="community.id">
                                             <td class="whotespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{ community.name }}</td>
                                             <td class="whotespace-nowrap px-3 py-4 text-sm text-gray-500">{{ community.slug }}</td>
                                             <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
@@ -44,6 +44,10 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="m-2 p-2">
+                                    <Pagination :links="communities.links" />
+                                    <!-- <Link v-for="community in communities.links" :key="community.id" :href="community.url">{{ community.label }}</Link> -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -60,6 +64,7 @@ import BreezeLabel from '@/Components/Label.vue';
 import BreezeButton from '@/Components/Button.vue';
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import Pagination from '@/Components/Pagination.vue';
 
 defineProps({
     communities:Object

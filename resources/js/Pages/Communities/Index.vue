@@ -37,6 +37,9 @@
                                                 <Link :href="route('communities.edit', community.id)" class="text-indigo-600 hover:text-indigo-900">
                                                     Edit
                                                 </Link>
+                                                <Link :href="route('communities.destroy', community.id)" method="delete" class="text-red-600 hover:text-red-900">
+                                                    Delte
+                                                </Link>
                                             </td>
                                         </tr>
                                     </tbody>

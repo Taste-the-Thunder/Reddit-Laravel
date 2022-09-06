@@ -10,6 +10,7 @@ class Community extends Model
 {
     use HasFactory, Sluggable;
     protected $fillable = ['user_id', 'name', 'description', 'slug'];
+
     public function sluggable(): array
     {
         return [
@@ -17,5 +18,15 @@ class Community extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }

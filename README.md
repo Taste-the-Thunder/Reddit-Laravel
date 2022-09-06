@@ -19,6 +19,13 @@ We are making Reddit App on Laravel 9 with VueJS & Inertia, this project is very
 ### Adding Slug
 - ``` composer require cviebrock/eloquent-sluggable ``` 
 
+### Laravel Debugbar
+- ``` composer require barryvdh/laravel-debugbar --dev ```
+- ``` php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider" ```
+    - laravel debugbar is use to debug how many query are fire
+    - how much time it takes
+    - ...
+
 
 ## License
 
